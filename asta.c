@@ -36,7 +36,7 @@ for (i = 0; i < numPartecipanti; i++) {
     squadre[i].numG = i + 1;
     contatoreInterno[i] = 0;
 
-    token = strtok(NULL, ","); // passa al nome successivo
+    
 }
 
     free(giocatori_str);
