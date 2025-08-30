@@ -32,7 +32,7 @@ for (i = 0; i < numPartecipanti; i++) {
     squadre[i].nomeAllenatore[sizeof(squadre[i].nomeAllenatore)-1] = '\0';
 
     token = strtok(NULL, ","); 
-    squadre[i].budget = atoi(argv[2]);
+    squadre[i].budget = atoi(argv[3]);
     squadre[i].numG = i + 1;
     contatoreInterno[i] = 0;
 
@@ -66,9 +66,9 @@ for (i = 0; i < numPartecipanti; i++) {
             scanf ("%d", &selezione);
             fflush (stdin);
             
-            if (selezione < 1 || selezione > 8)
+            if (selezione < 1 || selezione > numPartecipanti)
             {
-                while (selezione < 1 || selezione > 8)
+                while (selezione < 1 || selezione > numPartecipanti)
                 {
                      printf ("Squadra non valida. Riprova\n");
                      fflush(stdout); 
