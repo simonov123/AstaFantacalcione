@@ -1,7 +1,8 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout,QSpinBox,QTextEdit,QLabel,QLineEdit
 from astadata import AstaData
-import subprocess
+from asta import Asta
+
 
 app = QApplication(sys.argv)
 attuale=None
@@ -40,10 +41,10 @@ class NuovWindow(QWidget):
         global attuale
         attuale=AstaData()
         attuale.setdata(self.nomeasta.text(),self.giocatori.value(),self.budget.text(),listagio)
-        nome,numero,budget1,giocatori="",0,0,[]
-        nome,numero,budget1,giocatori=attuale.getdata()
-        nomi_str = ",".join(giocatori)
-        subprocess.run(["./asta.exe",nome,numero,budget1,nomi_str])
+        self.asta = Asta(attuale)
+        self.asta.show()
+        self.close()
+       
         
 
 def newf():
